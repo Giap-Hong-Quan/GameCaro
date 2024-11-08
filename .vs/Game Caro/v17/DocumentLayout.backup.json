@@ -1,0 +1,115 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC8E721-3171-4A37-BA79-BC8A1C3B55F1}|Game Caro\\Game Caro.csproj|D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\game caro\\gamecaro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FBC8E721-3171-4A37-BA79-BC8A1C3B55F1}|Game Caro\\Game Caro.csproj|solutionrelative:game caro\\gamecaro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC8E721-3171-4A37-BA79-BC8A1C3B55F1}|Game Caro\\Game Caro.csproj|D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\game caro\\images\\banner.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{FBC8E721-3171-4A37-BA79-BC8A1C3B55F1}|Game Caro\\Game Caro.csproj|solutionrelative:game caro\\images\\banner.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC8E721-3171-4A37-BA79-BC8A1C3B55F1}|Game Caro\\Game Caro.csproj|d:\\c#\\nhom6-lap trinhgamecaro\\game caro\\game caro\\socketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC8E721-3171-4A37-BA79-BC8A1C3B55F1}|Game Caro\\Game Caro.csproj|solutionrelative:game caro\\socketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC8E721-3171-4A37-BA79-BC8A1C3B55F1}|Game Caro\\Game Caro.csproj|D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\game caro\\gamecaro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC8E721-3171-4A37-BA79-BC8A1C3B55F1}|Game Caro\\Game Caro.csproj|solutionrelative:game caro\\gamecaro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC8E721-3171-4A37-BA79-BC8A1C3B55F1}|Game Caro\\Game Caro.csproj|d:\\c#\\nhom6-lap trinhgamecaro\\game caro\\game caro\\gameboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC8E721-3171-4A37-BA79-BC8A1C3B55F1}|Game Caro\\Game Caro.csproj|solutionrelative:game caro\\gameboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 158,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SocketManager.cs",
+              "DocumentMoniker": "D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\Game Caro\\SocketManager.cs",
+              "RelativeDocumentMoniker": "Game Caro\\SocketManager.cs",
+              "ToolTip": "D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\Game Caro\\SocketManager.cs",
+              "RelativeToolTip": "Game Caro\\SocketManager.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAmwDYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T06:39:01.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "banner.jpg - Bitmap [600x338, 24 bit, JPG]",
+              "DocumentMoniker": "D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\Game Caro\\images\\banner.jpg",
+              "RelativeDocumentMoniker": "Game Caro\\images\\banner.jpg",
+              "ToolTip": "D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\Game Caro\\images\\banner.jpg - Bitmap [600x338, 24 bit, JPG]",
+              "RelativeToolTip": "Game Caro\\images\\banner.jpg - Bitmap [600x338, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-05T08:05:45.636Z",
+              "EditorCaption": " - Bitmap [600x338, 24 bit, JPG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GameCaro.cs",
+              "DocumentMoniker": "D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\Game Caro\\GameCaro.cs",
+              "RelativeDocumentMoniker": "Game Caro\\GameCaro.cs",
+              "ToolTip": "D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\Game Caro\\GameCaro.cs",
+              "RelativeToolTip": "Game Caro\\GameCaro.cs",
+              "ViewState": "AgIAAAUBAAAAAAAAAAAIwDQBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T05:07:31.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GameBoard.cs",
+              "DocumentMoniker": "D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\Game Caro\\GameBoard.cs",
+              "RelativeDocumentMoniker": "Game Caro\\GameBoard.cs",
+              "ToolTip": "D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\Game Caro\\GameBoard.cs",
+              "RelativeToolTip": "Game Caro\\GameBoard.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAUwIUBAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T04:58:39.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameCaro.cs [Design]",
+              "DocumentMoniker": "D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\Game Caro\\GameCaro.cs",
+              "RelativeDocumentMoniker": "Game Caro\\GameCaro.cs",
+              "ToolTip": "D:\\C#\\Nhom6-Lap TrinhGameCaro\\Game Caro\\Game Caro\\GameCaro.cs [Design]",
+              "RelativeToolTip": "Game Caro\\GameCaro.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T04:58:43.401Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
