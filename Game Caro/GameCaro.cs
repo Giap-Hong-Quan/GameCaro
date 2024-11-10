@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace Game_Caro
 {
+    
     partial class GameCaro : Form
     {
         #region Properties
@@ -323,7 +324,7 @@ namespace Game_Caro
             ListenThread.IsBackground = true;
             ListenThread.Start();
         }
-
+    //Hoàn Thành
         private void ProcessData(SocketData data)
         {
             PlayerName = board.ListPlayers[board.CurrentPlayer == 1 ? 0 : 1].Name;
