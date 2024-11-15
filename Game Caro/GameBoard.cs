@@ -634,6 +634,216 @@ namespace Game_Caro
             return TotalScore;
         }
     #endregion
-        
+    Giáp Hồng Quân
+    #region Calculate defense score
+    private long DefenseHorizontal(int CurrRow, int CurrCol)
+    {
+        long TotalScore = 0;
+        int ComCells = 0;
+        int ManCells = 0;
+
+        // Duyệt từ trên xuống
+        for (int Count = 1; Count < 6 && CurrRow + Count < Constance.nRows; Count++)
+        {
+            if (MatrixPositions[CurrRow + Count][CurrCol].BackgroundImage == ListPlayers[0].Symbol)
+            {
+                ComCells += 1;
+                break;
+            }  
+            else if (MatrixPositions[CurrRow + Count][CurrCol].BackgroundImage == ListPlayers[1].Symbol)
+                ManCells += 1;
+            else
+                break;
+        }
+
+        // Duyệt từ dưới lên
+        for (int Count = 1; Count < 6 && CurrRow - Count >= 0; Count++)
+        {
+            if (MatrixPositions[CurrRow - Count][CurrCol].BackgroundImage == ListPlayers[0].Symbol)
+            {
+                ComCells += 1;
+                break;
+            }
+            else if (MatrixPositions[CurrRow - Count][CurrCol].BackgroundImage == ListPlayers[1].Symbol)
+                ManCells += 1;
+            else
+                break;
+        }
+
+        if (ComCells == 2)
+            return 0;
+
+        TotalScore += ArrDefenseScore[ManCells];
+
+        return TotalScore;
+    }
+
+    private long DefenseVertical(int CurrRow, int CurrCol)
+    {
+        long TotalScore = 0;
+        int ComCells = 0;
+        int ManCells = 0;
+
+        // Duyệt từ trái sang phải
+        for (int Count = 1; Count < 6 && CurrCol + Count < Constance.nCols; Count++)
+        {
+            if (MatrixPositions[CurrRow][CurrCol + Count].BackgroundImage == ListPlayers[0].Symbol)
+            {
+                ComCells += 1;
+                break;
+            }
+            else if (MatrixPositions[CurrRow][CurrCol + Count].BackgroundImage == ListPlayers[1].Symbol)
+                ManCells += 1;
+            else
+                break;
+        }
+
+        // Duyệt từ phải sang trái
+        for (int Count = 1; Count < 6 && CurrCol - Count >= 0; Count++)
+        {
+            if (MatrixPositions[CurrRow][CurrCol - Count].BackgroundImage == ListPlayers[0].Symbol)
+            {
+                ComCells += 1;
+                break;
+            }
+            else if (MatrixPositions[CurrRow][CurrCol - Count].BackgroundImage == ListPlayers[1].Symbol)
+                ManCells += 1;
+            else
+                break;
+        }
+
+        if (ComCells == 2)
+            return 0;
+
+        TotalScore += ArrDefenseScore[ManCells];
+
+        return TotalScore;
+    }
+
+    private long DefenseMainDiag(int CurrRow, int CurrCol)
+    {
+        long TotalScore = 0;
+        int ComCells = 0;
+        int ManCells = 0;
+
+        // Duyệt trái trên
+        for (int Count = 1; Count < 6 && CurrCol + Count < Constance.nCols && CurrRow + Count < Constance.nRows; Count++)
+        {
+            if (MatrixPositions[CurrRow + Count][CurrCol + Count].BackgroundImage == ListPlayers[0].Symbol)
+            {
+                ComCells += 1;
+                break;
+            }
+            else if (MatrixPositions[CurrRow + Count][CurrCol + Count].BackgroundImage == ListPlayers[1].Symbol)
+                ManCells += 1;
+            else
+                break;
+        }
+
+        // Duyệt phải dưới
+        for (int Count = 1; Count < 6 && CurrCol - Count >= 0 && CurrRow - Count >= 0; Count++)
+        {
+            if (MatrixPositions[CurrRow - Count][CurrCol - Count].BackgroundImage == ListPlayers[0].Symbol)
+            {
+                ComCells += 1;
+                break;
+            }
+            else if (MatrixPositions[CurrRow - Count][CurrCol - Count].BackgroundImage == ListPlayers[1].Symbol)
+                ManCells += 1;
+            else
+                break;
+        }
+
+        if (ComCells == 2)
+            return 0;
+
+        TotalScore += ArrDefenseScore[ManCells];
+
+        return TotalScore;
+    }
+
+    private long DefenseExtraDiag(int CurrRow, int CurrCol)
+    {
+        long TotalScore = 0;
+        int ComCells = 0;
+        int ManCells = 0;
+
+        // Duyệt phải trên
+        for (int Count = 1; Count < 6 && CurrCol + Count < Constance.nCols && CurrRow - Count >= 0; Count++)
+        {
+            if (MatrixPositions[CurrRow - Count][CurrCol + Count].BackgroundImage == ListPlayers[0].Symbol)
+            {
+                ComCells += 1;
+                break;
+            }
+            else if (MatrixPositions[CurrRow - Count][CurrCol + Count].BackgroundImage == ListPlayers[1].Symbol)
+                ManCells += 1;
+            else
+                break;
+        }
+
+        // Duyệt trái dưới
+        for (int Count = 1; Count < 6 && CurrCol - Count >= 0 && CurrRow + Count < Constance.nRows; Count++)
+        {
+            if (MatrixPositions[CurrRow + Count][CurrCol - Count].BackgroundImage == ListPlayers[0].Symbol)
+            {
+                ComCells += 1;
+                break;
+            }
+            else if (MatrixPositions[CurrRow + Count][CurrCol - Count].BackgroundImage == ListPlayers[1].Symbol)
+                ManCells += 1;
+            else
+                break;
+        }
+
+        if (ComCells == 2)
+            return 0;
+
+        TotalScore += ArrDefenseScore[ManCells];
+
+        return TotalScore;
+    }
+    #endregion
+    private Point FindAiPos()
+    {
+        Point AiPos = new Point();
+        long MaxScore = 0;
+
+        for (int i = 0; i < Constance.nRows; i++)
+        {
+            for (int j = 0; j < Constance.nCols; j++)
+            {
+                if (MatrixPositions[i][j].BackgroundImage == null)
+                {
+                    long AttackScore = AttackHorizontal(i, j) + AttackVertical(i, j) + AttackMainDiag(i, j) + AttackExtraDiag(i, j);
+                    long DefenseScore = DefenseHorizontal(i, j) + DefenseVertical(i, j) + DefenseMainDiag(i, j) + DefenseExtraDiag(i, j);
+                    long TempScore = AttackScore > DefenseScore ? AttackScore : DefenseScore;
+
+                    if (MaxScore < TempScore)
+                    {
+                        MaxScore = TempScore;
+                        AiPos = new Point(i, j);
+                    }
+                }
+            }
+        }
+
+        return AiPos;
+    }
+
+    public void StartAI()
+    {
+        IsAI = true;
+
+        if (StkUndoStep.Count == 0) // mới bắt đầu thì cho đánh giữa bàn cờ
+            MatrixPositions[Constance.nRows / 4][Constance.nCols / 4].PerformClick();
+        else
+        {
+            Point AiPos = FindAiPos();
+            MatrixPositions[AiPos.X][AiPos.Y].PerformClick();
+        }
+    }
+    #endregion
+    #endregion
     }
 }
