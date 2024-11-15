@@ -445,7 +445,195 @@ namespace Game_Caro
                 EndGame();
         }
         #endregion
+ #region 1 player
+        private long[] ArrAttackScore = new long[7] { 0, 64, 4096, 262144, 16777216, 1073741824, 68719476736 };
+        private long[] ArrDefenseScore = new long[7] { 0, 8, 512, 32768, 2097152, 134217728, 8589934592 };
 
+        #region Calculate attack score
+        private long AttackHorizontal(int CurrRow, int CurrCol)
+        {
+            long TotalScore = 0;
+            int ComCells = 0;
+            int ManCells = 0;
+
+            // Duyệt từ trên xuống
+            for (int Count = 1; Count < 6 && CurrRow + Count < Constance.nRows; Count++)
+            {
+                if (MatrixPositions[CurrRow + Count][CurrCol].BackgroundImage == ListPlayers[0].Symbol)
+                    ComCells += 1;
+                else if (MatrixPositions[CurrRow + Count][CurrCol].BackgroundImage == ListPlayers[1].Symbol)
+                {
+                    ManCells += 1;
+                    break;
+                }
+                else
+                    break;
+            }
+
+            // Duyệt từ dưới lên
+            for (int Count = 1; Count < 6 && CurrRow - Count >= 0; Count++)
+            {
+                if (MatrixPositions[CurrRow - Count][CurrCol].BackgroundImage == ListPlayers[0].Symbol)
+                    ComCells += 1;
+                else if (MatrixPositions[CurrRow - Count][CurrCol].BackgroundImage == ListPlayers[1].Symbol)
+                {
+                    ManCells += 1;
+                    break;
+                }
+                else
+                    break;
+            }
+
+            if (ManCells == 2)
+                return 0;
+
+            /* Nếu ManCells == 1 => bị chặn 1 đầu => lấy điểm phòng ngự tại vị trí này nhưng 
+            nên cộng thêm 1 để tăng phòng ngự cho máy cảnh giác hơn vì đã bị chặn 1 đầu */
+
+            TotalScore -= ArrDefenseScore[ManCells + 1];
+            TotalScore += ArrAttackScore[ComCells];
+
+            return TotalScore;
+        }
+
+        private long AttackVertical(int CurrRow, int CurrCol)
+        {
+            long TotalScore = 0;
+            int ComCells = 0;
+            int ManCells = 0;
+
+            // Duyệt từ trái sang phải
+            for (int Count = 1; Count < 6 && CurrCol + Count < Constance.nCols; Count++)
+            {
+                if (MatrixPositions[CurrRow][CurrCol + Count].BackgroundImage == ListPlayers[0].Symbol)
+                    ComCells += 1;
+                else if (MatrixPositions[CurrRow][CurrCol + Count].BackgroundImage == ListPlayers[1].Symbol)
+                {
+                    ManCells += 1;
+                    break;
+                }
+                else
+                    break;
+            }
+
+            // Duyệt từ phải sang trái
+            for (int Count = 1; Count < 6 && CurrCol - Count >= 0; Count++)
+            {
+                if (MatrixPositions[CurrRow][CurrCol - Count].BackgroundImage == ListPlayers[0].Symbol)
+                    ComCells += 1;
+                else if (MatrixPositions[CurrRow][CurrCol - Count].BackgroundImage == ListPlayers[1].Symbol)
+                {
+                    ManCells += 1;
+                    break;
+                }
+                else
+                    break;
+            }
+
+            if (ManCells == 2)
+                return 0;
+
+            /* Nếu ManCells == 1 => bị chặn 1 đầu => lấy điểm phòng ngự tại vị trí này nhưng 
+            nên cộng thêm 1 để tăng phòng ngự cho máy cảnh giác hơn vì đã bị chặn 1 đầu */
+
+            TotalScore -= ArrDefenseScore[ManCells + 1];
+            TotalScore += ArrAttackScore[ComCells];
+
+            return TotalScore;
+        }
+
+        private long AttackMainDiag(int CurrRow, int CurrCol)
+        {
+            long TotalScore = 0;
+            int ComCells = 0;
+            int ManCells = 0;
+
+            // Duyệt trái trên
+            for (int Count = 1; Count < 6 && CurrCol + Count < Constance.nCols && CurrRow + Count < Constance.nRows; Count++)
+            {
+                if (MatrixPositions[CurrRow + Count][CurrCol + Count].BackgroundImage == ListPlayers[0].Symbol)
+                    ComCells += 1;
+                else if (MatrixPositions[CurrRow + Count][CurrCol + Count].BackgroundImage == ListPlayers[1].Symbol)
+                {
+                    ManCells += 1;
+                    break;
+                }
+                else
+                    break;
+            }
+
+            // Duyệt phải dưới
+            for (int Count = 1; Count < 6 && CurrCol - Count >= 0 && CurrRow - Count >= 0; Count++)
+            {
+                if (MatrixPositions[CurrRow - Count][CurrCol - Count].BackgroundImage == ListPlayers[0].Symbol)
+                    ComCells += 1;
+                else if (MatrixPositions[CurrRow - Count][CurrCol - Count].BackgroundImage == ListPlayers[1].Symbol)
+                {
+                    ManCells += 1;
+                    break;
+                }
+                else
+                    break;
+            }
+
+            if (ManCells == 2)
+                return 0;
+
+            /* Nếu ManCells == 1 => bị chặn 1 đầu => lấy điểm phòng ngự tại vị trí này nhưng 
+            nên cộng thêm 1 để tăng phòng ngự cho máy cảnh giác hơn vì đã bị chặn 1 đầu */
+
+            TotalScore -= ArrDefenseScore[ManCells + 1];
+            TotalScore += ArrAttackScore[ComCells];
+
+            return TotalScore;
+        }
+
+        private long AttackExtraDiag(int CurrRow, int CurrCol)
+        {
+            long TotalScore = 0;
+            int ComCells = 0;
+            int ManCells = 0;
+
+            // Duyệt phải trên
+            for (int Count = 1; Count < 6 && CurrCol + Count < Constance.nCols && CurrRow - Count >= 0; Count++)
+            {
+                if (MatrixPositions[CurrRow - Count][CurrCol + Count].BackgroundImage == ListPlayers[0].Symbol)
+                    ComCells += 1;
+                else if (MatrixPositions[CurrRow - Count][CurrCol + Count].BackgroundImage == ListPlayers[1].Symbol)
+                {
+                    ManCells += 1;
+                    break;
+                }
+                else
+                    break;
+            }
+
+            // Duyệt trái dưới
+            for (int Count = 1; Count < 6 && CurrCol - Count >= 0 && CurrRow + Count < Constance.nRows; Count++)
+            {
+                if (MatrixPositions[CurrRow + Count][CurrCol - Count].BackgroundImage == ListPlayers[0].Symbol)
+                    ComCells += 1;
+                else if (MatrixPositions[CurrRow + Count][CurrCol - Count].BackgroundImage == ListPlayers[1].Symbol)
+                {
+                    ManCells += 1;
+                    break;
+                }
+                else
+                    break;
+            }
+
+            if (ManCells == 2)
+                return 0;
+
+            /* Nếu ManCells == 1 => bị chặn 1 đầu => lấy điểm phòng ngự tại vị trí này nhưng 
+            nên cộng thêm 1 để tăng phòng ngự cho máy cảnh giác hơn vì đã bị chặn 1 đầu */
+
+            TotalScore -= ArrDefenseScore[ManCells + 1];
+            TotalScore += ArrAttackScore[ComCells];
+
+            return TotalScore;
+        }
+    #endregion
         
     }
 }
